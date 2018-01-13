@@ -119,7 +119,7 @@ function bindHanlers() {
     /* Binds handlers to DOM elements. */
 
     // TODO: causes errors if called before the cy is initialised
-    $(document).keyup(keyUpClassifier);
+    $(document).keydown(keyDownClassifier);
 
     $("#indata").bind("keyup", drawTree);
     $("#indata").bind("keyup", focusOut);
@@ -413,7 +413,9 @@ function drawTree() {
     1. removes the previous tree, if there's one
     2. takes the data from the textarea
     3. */
-
+    
+    ISEDITING = false;
+    
     // TODO: update the sentence
     try {cy.destroy()} catch (err) {}; // remove the previous tree, if there is one
 
